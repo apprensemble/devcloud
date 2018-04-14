@@ -29,13 +29,27 @@ https://github.com/openstack-dev/devstack
 
 https://github.com/dcos/dcos-vagrant
 
+### une vm dans un container :)
+
+Je me suis dis que mettre une vm dans un container pouvait être sympa car une vm dans une vm je doute un peu des perf... Et bien d'autres l'ont fait même pas besoin de se prendre la tête :
+
+https://stackoverflow.com/questions/48422001/how-to-launch-qemu-kvm-from-inside-a-docker-container --> https://github.com/naeemkhan12/dockerfiles/blob/master/kvm/Dockerfile
+
+La même chose est possible avec virtualbox :
+
+https://stackoverflow.com/questions/25741904/is-it-possible-to-run-virtualbox-inside-a-docker-container
 
 ## troubleshooting
 
-J'ai installé DCOS via vagrant et j'ai eu qq pb.
+### J'ai installé DCOS via vagrant et j'ai eu qq pb.
 
 * stack too deep après un vagrant up : https://github.com/hashicorp/vagrant/issues/9595
 
 * impossible d'acceder aux noeuds avec un dcos ssh car je ne connais pas le mdp core : https://github.com/dcos/dcos-cli/issues/679
+
+### J'ai installé devstack via vagrant et j'ai eu qq pb.
+
+* impossible de trouver le package puppet apres le premier vagrant up : j'ai ajouté ```sudo apt-get update``` au moment du provisionning.
+
 
 
