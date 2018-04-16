@@ -2,6 +2,8 @@
 
 Construire un cloud de dev basé sur openstack + dcos
 
+** Je viens de découvrir kubevirt qui semble mieux correspondre à mes besoin personnel. **
+
 ## Pourquoi?
 
 Pour le fun! Openstack c'est la virtualisation à portée de main :
@@ -50,6 +52,22 @@ https://stackoverflow.com/questions/25741904/is-it-possible-to-run-virtualbox-in
 ### J'ai installé devstack via vagrant et j'ai eu qq pb.
 
 * impossible de trouver le package puppet apres le premier vagrant up : j'ai ajouté ```sudo apt-get update``` au moment du provisionning.
+
+* python-pip not installed on compute??? : wtf?? https://ask.openstack.org/en/question/60079/devstack-stacksh-failed-unable-to-find-pip/
+
+Solution : ajouter ```sudo apt-get install python-setuptools && sudo easy_install pip && exit``` dans le Vagrantfile
+
+* le package psutil n'a pu être desinstallé. C'est pourtant devstack qui me l'install : https://bugs.launchpad.net/devstack/+bug/1763966
+
+Solution : le supprimer de la liste des packages à installer.
+
+### J'ai installé kubevirt et j'ai eu qq pb
+
+* network default not found : https://github.com/kubernetes/minikube/issues/828
+
+* ailure loading apiserver certificate...Process exited with status 1 : https://github.com/kubernetes/minikube/issues/2703
+    
+    Un contournement simple est d'installer minikube v0.25.2
 
 
 
